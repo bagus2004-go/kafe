@@ -147,6 +147,7 @@ button {
     color: var(--choco);
 }
 
+/*------------header------------*/
 header {
     position: fixed;
     top: 5%;
@@ -226,6 +227,10 @@ header.scrolled a:hover {
     transition: 0.2s linear;
 }
 
+/*------------footer------------*/
+
+
+/*------------media queries------------*/
 @media (max-width: 991px) {
     #menu-btn {
         display: block;
