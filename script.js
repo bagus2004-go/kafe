@@ -15,5 +15,5 @@ menu.addEventListener('click', function() {
 
 userBtn.addEventListener('click', function() {
     let userBox = document.querySelector('.user-box');
-    userBox.classList.toggle('active');
+    userBox.classList.toggle('active')
 })
