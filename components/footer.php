@@ -9,14 +9,14 @@
     <div class="overlay"></div>
     <div class="footer-content">
         <div class="img-box">
-            <img src="img/logo.png">
+            <img src="img/logo2.png">
         </div>
         <div class="inner-footer">
             <div class="card">
                 <h3>Tentang Kami</h3>
                 <ul>
                     <li>tentang kami</li>
-                    <li>Perbedaan kita</li>
+                    <li>Perbedaan</li>
                     <li>Masalah komunitas</li>
                     <li>Tekan</li>
                     <li>Situs web</li>
@@ -35,7 +35,7 @@
                 </ul>
             </div>
             <div class="card">
-                <h3>Lokal</h3>
+                <h3>Lokasi</h3>
                 <ul>
                     <li>Surabaya</li>
                     <li>Sidoarjo</li>

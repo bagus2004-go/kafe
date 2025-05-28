@@ -22,7 +22,7 @@ body{
 }
 .main {
     width: 85vw;
-    background: #000;
+    background: #fff;
     box-shadow: 0 2px 6px 0 rgb(0 0 0/10%);
     margin: 1rem auto;
     margin-top: 10rem;
@@ -227,10 +227,87 @@ header.scrolled {
     transition: 0.2s linear;
 }
 
+/*------------home slider section------------*/
+.home-section {
+    position: relative;
+    margin-bottom: 2rem;
+}
+.slider {
+    font-family: 'Roboto', sans-serif;
+    max-height: 80vh;
+    width: 100%;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+}
+.slider_slider {
+    height: 80vh;
+    min-width: 100vw;
+    width: 100%;
+    scroll-snap-align: start;
+    background-position: center center;
+    background-size: cover;
+    position: relative
+}
+.slider_slider .slide-detail {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    text-align: center;
+}
+.slider_slider .slide-detail h1 {
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+}
+.slider_slider .slide-detail h1::before {
+    position: absolute;
+    content: '';
+    background: #e2e2e244;
+    width: 300%;
+    height: 1px;
+    bottom: -40%;
+    left: 20%;
+}
+.slider_slider .slide-detail h1::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    bottom: -50%;
+    left: 50%;
+    background: #f7b90f;
+}
+.slider_slider .slide-detail p {
+    font-size: 14px;
+    color: #fff;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.slide1 {
+    background-image: url(img/slider0.jpg);
+}
+.slide2 {
+    background-image: url(img/slider1.jpg);
+}
+.slide3 {
+    background-image: url(img/slider2.jpg);
+}
+.slide4 {
+    background-image: url(img/slider3.jpg);
+}
+.slide5 {
+    background-image: url(img/slider4.jpg);
+}
+
+
 /*------------footer------------*/
 .top-footer {
     width: 100%;
-    background: var(--choco);
+    background: var(--light-choco);
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -262,7 +339,7 @@ footer .overlay {
     background: #000;
     opacity: 0.5;
 }
-.footer-container {
+.footer-content {
     position: absolute;
     top: 10%;
 }
@@ -300,10 +377,10 @@ footer .inner-footer .card p {
     margin-bottom: 1rem;
     font-size: 16px;
 }
-footer .inner-footer .card .sosial_links {
+footer .inner-footer .card .social-links {
     margin-top: 1rem;
 }
-footer .inner-footer .card .sosial_links i {
+footer .inner-footer .card .social-links i {
     width: 50px;
     height: 50px;
     line-height: 25px;
@@ -316,7 +393,7 @@ footer .inner-footer .card .sosial_links i {
     padding: 0.6rem;
     font-size: 1.3rem;
 }
-footer .inner-footer .card .sosial_links i:hover {
+footer .inner-footer .card .social-links i:hover {
     background: var(--choco);
     color: #fff;
 }
