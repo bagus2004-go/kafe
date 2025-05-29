@@ -18,7 +18,6 @@
                     <li>tentang kami</li>
                     <li>Perbedaan</li>
                     <li>Masalah komunitas</li>
-                    <li>Tekan</li>
                     <li>Situs web</li>
                     <li>Video bougs</li>
                 </ul>
@@ -31,7 +30,6 @@
                     <li>Pengiriman</li>
                     <li>syarat penggunaan</li>
                     <li>Detail akun</li>
-                    <li>akunku</li>
                 </ul>
             </div>
             <div class="card">
@@ -41,13 +39,12 @@
                     <li>Sidoarjo</li>
                     <li>Gresik</li>
                     <li>Mojokerto</li>
-                    <li>Pasuruan</li>
                     <li>Malang</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Buletin</h3>
-                <p>Daftar ke buletin untuk dapat info terbaru</p>
+                <p>Daftar ke buletin kami untuk dapatkan info terbaru</p>
                 <div class="social-links">
                     <i class="bx bxl-facebook"></i>
                     <i class="bx bxl-instagram"></i>

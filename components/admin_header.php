@@ -1,6 +1,6 @@
 <header class="header">
     <div class="flex">
-        <a href="dashboard.php" class="logo"><img src="../img/logo.png"></a>
+        <a href="dashboard.php" class="logo"><img src="../img/logo2.png"></a>
         <nav class="navbar">
             <a href="dashboard.php">dasbor</a>
             <a href="add_product.php">tambah produk</a>
