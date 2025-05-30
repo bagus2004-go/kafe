@@ -55,17 +55,16 @@ slider.addEventListener('click', function(ev) {
         scrollLeft();
         resetTimer();
     }
-})
+});
 slider.addEventListener('click', function(ev) {
     if(ev.target === rightArrow) {
         scrollRight();
         resetTimer();
     }
-})
+});
 /*-- testimonial slider --*/
 let slides = document.querySelectorAll('.testimonial-item');
 let index = 0;
-
 function nextSlide() {
     slides[index].classList.remove('active');
     index = (index + 1) % slides.length;

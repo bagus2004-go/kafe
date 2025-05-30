@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Coffee Shop - Tentang Kami</title>
+    <title>Coffee Shop - Halaman Tentang Kami</title>
 </head>
 <body>
     <?php include 'components/header.php';?>
@@ -117,12 +117,12 @@
                     <h1>Tung Tung Sahur</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur tenetur aperiam esse. Eum nam, dolores laudantium natus, quia vel dicta a eaque quod fuga velit modi nihil possimus nostrum ea.</p>
                 </div>
-                <div class="testimonial-item active">
+                <div class="testimonial-item">
                     <img src="img/testi2.jpg">
                     <h1>Tralalero Tralala</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur tenetur aperiam esse. Eum nam, dolores laudantium natus, quia vel dicta a eaque quod fuga velit modi nihil possimus nostrum ea.</p>
                 </div>
-                <div class="testimonial-item active">
+                <div class="testimonial-item">
                     <img src="img/testi3.jpg">
                     <h1>Cimpanzini Bananini</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur tenetur aperiam esse. Eum nam, dolores laudantium natus, quia vel dicta a eaque quod fuga velit modi nihil possimus nostrum ea.</p>
@@ -135,6 +135,20 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="script.js"></script>
+    <script type="text/javascript">
+        let slides = document.querySelectorAll('.testimonial-item');
+        let index = 0;
+        function nextSlide() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+        function prevSlide() {
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+        }
+    </script>
     <?php include 'components/alert.php';?>
 </body>
 </html>
