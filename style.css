@@ -372,7 +372,7 @@ header.scrolled {
     transition: all 800ms ease-in-out;
 }
 .thumb .box-container .box:hover img {
-    transform: rotateY('180deg');
+    transform: rotateY(180deg);
 }
 .thumb .box-container .box h3 {
     text-transform: capitalize;
@@ -462,6 +462,24 @@ header.scrolled {
 }
 .shop-category .detail p {
     font-size: 1.5rem;
+}
+.services {
+    padding: 3rem 0;
+    text-align: center;
+    background-image: url(img/body-bg2.jpg);
+    line-height: 2;
+    margin: 3rem 0;
+}
+.services h3 {
+    text-transform: capitalize;
+    color: var(--choco);
+}
+.services img {
+    width: 30%;
+}
+.brand {
+    margin: 2rem auto;
+    text-align: center;
 }
 
 /*------------footer------------*/

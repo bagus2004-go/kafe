@@ -179,6 +179,57 @@
                 </div>
             </div>
         </section>
+        <section class="services">
+            <div class="box-container">
+                <div class="box">
+                    <img src="img/icon.png">
+                    <div class="detail">
+                        <h3>penghematan besar</h3>
+                        <p>hemat banyak setiap pesanan</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="img/icon1.png">
+                    <div class="detail">
+                        <h3>Dukungan 24*7</h3>
+                        <p>dukungan satu-satu</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="img/icon2.png">
+                    <div class="detail">
+                        <h3>voucher hadiah</h3>
+                        <p>voucher di setiap perayaan</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="img/icon3.png">
+                    <div class="detail">
+                        <h3>Pengiriman gratis</h3>
+                        <p>pengiriman barang gratis</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="brand">
+            <div class="box-container">
+                <div class="box">
+                    <img src="img/brand1.png">
+                </div>
+                <div class="box">
+                    <img src="img/brand2.png">
+                </div>
+                <div class="box">
+                    <img src="img/brand3.png">
+                </div>
+                <div class="box">
+                    <img src="img/brand4.png">
+                </div>
+                <div class="box">
+                    <img src="img/brand.png">
+                </div>
+            </div>
+        </section>
         <?php include 'components/footer.php';?>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
