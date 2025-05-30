@@ -112,7 +112,7 @@ textarea {
     border: none;
     outline: none;
     padding: .6rem;
-    box-shadow: var(--box--shadow);
+    box-shadow: var(--box-shadow);
     margin: .5rem 0;
     border: 1px solid var(--choco);
     width: 100%;
@@ -154,12 +154,12 @@ button {
 header {
     position: fixed;
     top: 5%;
-    left: 7%;
+    left: 7.1%;
     width: 85vw;
     padding: 1rem;
     z-index: 101;
     transition: 0.3s;
-    box-shadow: var(--box--shadow);
+    box-shadow: var(--box-shadow);
     background-image: url(img/banner2.jpg);
 }
 header.scrolled {
@@ -351,13 +351,13 @@ header.scrolled {
 }
 .thumb {
     max-width: 1200px;
-    box-shadow: var(--box--shadow);
-    margin: 1rem;
+    box-shadow: var(--box-shadow);
+    margin: 2rem auto;
     padding: 2%;
 }
 .box-container {
     display: grid;
-    box-shadow: var(--box--shadow);
+    box-shadow: var(--box-shadow);
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
 .thumb .box-container .box {
@@ -393,7 +393,76 @@ header.scrolled {
     border: 2px solid var(--choco);
     cursor: pointer;
 }
-
+.container .box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container .box span {
+    color: var(--choco);
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-transform: capitalize;
+    font-style: italic;
+    font-weight: bold;
+}
+.container .box h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.shop {
+    background-image: url(img/body-bg2.jpg);
+    margin: 2rem 0;
+    padding: 2rem 1rem;
+}
+.shop .row {
+    display: flex;
+    justify-content: space-evenly;
+}
+.shop .row .top-footer {
+    margin-top: 2rem;
+    text-align: center !important;
+    text-transform: capitalize;
+    font-size: 1.5vw;
+    padding: 3rem 1rem;
+}
+.shop .box-container {
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+.shop .box-container .box {
+    margin: 1rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    background-color: #fff;
+}
+.shop .box-container img {
+    width: 100%;
+}
+.shop .btn {
+    position: absolute;
+    left: 30%;
+    bottom: -3%;
+}
+.shop-category .box {
+    position: relative;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+.shop-category .detail {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    line-height: 2;
+    text-align: center;
+}
+.shop-category .detail h1 {
+    font-size: 2rem;
+}
+.shop-category .detail p {
+    font-size: 1.5rem;
+}
 
 /*------------footer------------*/
 .top-footer {
