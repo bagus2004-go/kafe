@@ -42,12 +42,12 @@ a{
     text-transform: capitalize;
 }
 .title .logo {
-    width: 100px;
+    width: 80px;
 }
 ul {
     list-style: none;
 }
-sup {
+/*sup {
     position: absolute;
     top: 15%;
     background: #000;
@@ -58,7 +58,7 @@ sup {
     line-height: 15px;
     text-align: center;
     padding: 0.1rem;
-}
+}*/
 .empty {
     text-align: center;
     text-transform: capitalize;
@@ -635,12 +635,15 @@ textarea {
     background-color: transparent;
     width: 85%;
 }
+textarea {
+    height: 200px;
+}
 .form-container p {
     color: var(--choco);
 }
 .form-container sup {
     color: red;
-    font-size: 1.4rem;
+    
 }
 .main-container input[type=submit] {
     color: #000 !important;
@@ -665,7 +668,40 @@ textarea {
     border-radius: 10px;
     outline: none;
 }
-
+.address {
+    background-image: url('img/body-bg2.jpg');
+    padding: 4rem 0;
+    min-height: 50vh;
+}
+.address .box-container {
+    justify-content: center;
+    align-items: center;
+}
+.address .box-container .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    box-shadow: var(--box-shadow);
+    line-height: 2;
+    padding: 1rem 0;
+}
+.address .box-container .box h4 {
+    text-transform: uppercase;
+    color: var(--choco);
+}
+.address .box-container .box i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--choco);
+    color: #fff;
+}
 
 /*------------footer------------*/
 .top-footer {

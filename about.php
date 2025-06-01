@@ -1,5 +1,17 @@
 <?php 
     include 'components/connection.php';
+    session_start();
+
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+    } else {
+        $user_id = '';
+    }
+
+    if (isset($_POST['logout'])) {
+        session_destroy();
+        header('location: login.php');
+    }
 ?>
 <style type="text/css">
     <?php include 'style.css';?>
@@ -136,18 +148,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="script.js"></script>
     <script type="text/javascript">
-        let slides = document.querySelectorAll('.testimonial-item');
-        let index = 0;
-        function nextSlide() {
-            slides[index].classList.remove('active');
-            index = (index + 1) % slides.length;
-            slides[index].classList.add('active');
-        }
-        function prevSlide() {
-            slides[index].classList.remove('active');
-            index = (index - 1 + slides.length) % slides.length;
-            slides[index].classList.add('active');
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialSlides = document.querySelectorAll('.testimonial-item');
+            let currentSlideIndex = 0;
+            
+            // Make sure only first slide is active initially
+            testimonialSlides.forEach((slide, index) => {
+                if (index === 0) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            window.nextSlide = function() {
+                if (testimonialSlides.length === 0) return;
+                
+                testimonialSlides[currentSlideIndex].classList.remove('active');
+                currentSlideIndex = (currentSlideIndex + 1) % testimonialSlides.length;
+                testimonialSlides[currentSlideIndex].classList.add('active');
+            }
+            
+            window.prevSlide = function() {
+                if (testimonialSlides.length === 0) return;
+                
+                testimonialSlides[currentSlideIndex].classList.remove('active');
+                currentSlideIndex = (currentSlideIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
+                testimonialSlides[currentSlideIndex].classList.add('active');
+            }
+            
+            // Optional: Auto-slide every 5 seconds
+            setInterval(function() {
+                nextSlide();
+            }, 5000);
+        });
     </script>
     <?php include 'components/alert.php';?>
 </body>

@@ -1,5 +1,17 @@
 <?php 
     include 'components/connection.php';
+    session_start();
+
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+    } else {
+        $user_id = '';
+    }
+
+    if (isset($_POST['logout'])) {
+        session_destroy();
+        header('location: login.php');
+    }
 ?>
 <style type="text/css">
     <?php include 'style.css';?>
@@ -78,6 +90,36 @@
                 <button type="submit" name="submit-btn" class="btn">kirim pesan</button>
             </form>
         </div>
+        <div class="address">
+                <div class="title">
+                    <img src="img/download.png" class="logo">
+                    <h1>Detail Kontak</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="box-container">
+                    <div class="box">
+                        <i class="bx bxs-map-pin"></i>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jln. Arief Rachman Hakim 100</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <i class="bx bxs-phone-call"></i>
+                        <div>
+                            <h4>Nomor Telepon</h4>
+                            <p>+62 881-5887-040</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <i class="bx bx-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>JohnDoe123@gmail.com</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
         <?php include 'components/footer.php';?>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
