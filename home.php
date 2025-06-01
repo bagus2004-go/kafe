@@ -166,7 +166,7 @@
                     <a href="view_products.php" class="btn">beli sekarang</a>
                 </div>
                 <div class="box">
-                    <img src="img/card.jpg">
+                    <img src="img/card5.jpg">
                     <a href="view_products.php" class="btn">beli sekarang</a>
                 </div>
             </div>
