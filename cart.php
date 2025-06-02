@@ -92,7 +92,7 @@
                         <input type="number" name="qty" required min="1" value="<?= $fetch_cart['qty']; ?>" max="99" maxlength="2" class="qty">
                         <button type="submit" name="update_cart" class="bx bxs-edit fa-edit"></button></button>
                     </div>
-                    <p class="sub-total">sub total : <span>Rp<?= $sub_total = ($fetch_cart['qty'] * $fetch_cart['price']) ?></span></p>
+                    <p class="sub-total">sub total : <span>Rp<?= $sub_total = ($fetch_cart['qty'] * $fetch_cart['price']) ?>,-</span></p>
                     <button type="submit" name="delete_item" class="btn" onclick="return confirm('hapus produk ini dari daftar anda?')">Hapus</button>
                 </form>
                 <?php 
@@ -110,7 +110,7 @@
                 if ($grand_total !=0) {
             ?>
             <div class="cart-total">
-                <p>total keseluruhan : <span>Rp<?= $grand_total; ?>,-</span></p>
+                <p>total belanja : <span>Rp<?= $grand_total; ?>,-</span></p>
                 <div class="button">
                     <form method="post">
                         <button type="submit" name="empty_cart" class="btn" onclick="return confirm('hapus semua produk di daftar anda?')">hapus semua</button>
