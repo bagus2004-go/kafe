@@ -765,9 +765,11 @@ textarea {
     border-radius: 0.5rem;
     font-size: 1.7rem;
     color: #fff;
-    height: 3.5rem;
+    height: 2.7rem;
     width: 4.5rem;
     cursor: pointer;
+    background: var(--choco);
+    margin-left: 0.5rem;
 }
 .products .box-container .box .flex .fa-edit:hover {
     background: var(--light-choco);
