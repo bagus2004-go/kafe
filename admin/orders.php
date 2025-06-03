@@ -5,7 +5,7 @@
     if (!isset($admin_id)) {
         header('location: login.php');
     }
-    if (isset($_GET['delete_order'])) {
+    if (isset($_POST['delete_order'])) {
         $order_id = $_POST['order_id'];
         $order_id = filter_var($order_id, FILTER_SANITIZE_STRING);
         $verify_delete = $conn->prepare("SELECT * FROM `orders` WHERE id = ?");
@@ -17,6 +17,16 @@
         } else {
             $warning_msg[] = 'pesanan gagal dihapus!';
         }
+    }
+
+    if (isset($_POST['update_order'])) {
+        $order_id = $_POST['order_id'];
+        $order_id = filter_var($order_id, FILTER_SANITIZE_STRING);
+        $update_payment = $_POST['update_payment'];
+        $update_payment = filter_var($update_payment, FILTER_SANITIZE_STRING);
+        $update_pay = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
+        $update_pay->execute([$update_payment, $order_id]);
+        $success_msg[] = 'status pembayaran berhasil diperbarui!';
     }
 ?>
 
