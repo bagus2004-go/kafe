@@ -33,7 +33,7 @@
             $get_product->execute([$_GET['get_id']]);
             if ($get_product->rowCount() > 0) {
                 while ($fetch_products = $get_product->fetch(PDO::FETCH_ASSOC)) {
-                    $insert_order = $conn->prepare("INSERT INTO `orders`(id, user_id, name, number, email, address, address_type, $method, product_id, price, qty) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+                    $insert_order = $conn->prepare("INSERT INTO `orders`(id, user_id, name, number, email, address, address_type, method, product_id, price, qty) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
                     $insert_order->execute([unique_id(), $user_id, $name, $number, $email, $address, $address_type, $method, $fetch_products['id'], $fetch_products['price'], 1]);
                     header('location: order.php');
                 }
@@ -105,7 +105,6 @@
                                     <option value="credit or debit card">Credit atau Debit Card</option>
                                     <option value="E banking">E-Banking</option>
                                     <option value="shopeepay or gopay">ShopeePay atau Gopay</option>
-                                    <option value="qris">QRIS</option>
                                 </select>
                             </div>
                             <div class="input-field">

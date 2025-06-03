@@ -953,6 +953,65 @@ textarea {
     color: red;
 }
 
+/*------------order page------------*/
+.order .box-container {
+    padding: 2% 6%;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.order .box-container .box {
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+    position: relative;
+    overflow-x: hidden;
+}
+.order .box-container .box a {
+    display: flex;
+    align-items: center;
+}
+.order .box-container .box a .row {
+    position: absolute;
+    right: 1%;
+}
+.order .box-container .box .date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 1.5rem;
+    background: var(--light-choco);
+    font-size: 0.6rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+}
+.order .box-container .box .image {
+    height: 20rem;
+    width: 100%;
+    object-fit: contain;
+}
+.order .box-container .box .name {
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    color: #000;
+}
+.order .box-container .box .price {
+    color: orange;
+    font-size: 1rem;
+}
+.order .box-container .box .status {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.order .box-container .box:hover {
+    box-shadow: var(--box-shadow);
+}
+
+
 /*------------footer------------*/
 .top-footer {
     width: 100%;

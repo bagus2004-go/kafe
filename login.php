@@ -25,8 +25,7 @@
             header('Location: home.php');
             exit;
         } else {
-            $message[] = 'email atau kata sandi salah';
-            echo 'email atau kata sandi salah';
+            $warning_msg[] = 'email atau kata sandi salah';
         }
     }
 ?>
@@ -46,7 +45,7 @@
             <div class="title">
                 <img src="img/download.png">
                 <h1>Masuk Sekarang</h1>
-                <p>Isi data diri Anda:)</p> 
+                <p>Isi data diri Anda:</p> 
             </div>
             <form action="" method="post">
                 <div class="input-field">
@@ -57,10 +56,13 @@
                     <p>Password<sup>*</sup></p>
                     <input type="password" name="pass" required placeholder="Masukkan password anda" maxlength="100" oninput="this.value = this.value.replace(/\s/g,'')">
                 </div>
-                <input type="submit" name="submit" value="daftar sekarang" class="btn">
+                <button type="submit" name="submit" class="btn">masuk sekarang</button>
                 <p>Tidak memiliki akun? <a href="register.php">daftar sekarang</a></p> 
             </form>
         </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <?php include 'components/alert.php';?>
 </body>
 </html>

@@ -24,12 +24,10 @@
         $row = $select_user->fetch(PDO::FETCH_ASSOC);
 
         if ($select_user->rowCount() > 0) {
-            $message[] = 'email pengguna sudah ada';
-            echo 'email pengguna sudah ada';
+            $warning_msg[] = 'email pengguna sudah ada';
         } else {
             if ($pass != $cpass) {
-                $message[] = 'konfirmasi kata sandi tidak cocok';
-                echo 'konfirmasi kata sandi tidak cocok';
+                $warning_msg[] = 'konfirmasi kata sandi tidak cocok';
             } else {
                 $insert_user = $conn->prepare("INSERT INTO `users`(id, name, email, password) VALUES(?,?,?,?)");
                 $insert_user->execute([$id, $name, $email, $pass]);
@@ -82,10 +80,13 @@
                     <p>Konfirmasi Password<sup>*</sup></p>
                     <input type="password" name="cpass" required placeholder="Konfirmasi password anda" maxlength="100" oninput="this.value = this.value.replace(/\s/g,'')">
                 </div>
-                <input type="submit" name="submit" value="daftar sekarang" class="btn">
+                <button type="submit" name="submit" class="btn">daftar sekarang</button>
                 <p>sudah punya akun? <a href="login.php">masuk sekarang</a></p> 
             </form>
         </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <?php include 'components/alert.php';?>
 </body>
 </html>
