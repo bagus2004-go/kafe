@@ -24,6 +24,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Coffee Shop - halaman Pesanan</title>
 </head>
 <body>
@@ -52,14 +53,14 @@
                             if ($select_products->rowCount() > 0) {
                                 while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) { 
                 ?>
-                <div class="box" <?php if($fetch_orders['status'] == 'cancel') { echo 'style="border: 2px solid red";';} ?>>
+                <div class="box" <?php if($fetch_orders['status'] == 'dibatalkan') { echo 'style="border: 2px solid red";';} ?>>
                     <a href="view_order.php?get_id=<?= $fetch_orders['id']; ?>">
                         <p class="date"><i class="bi bi-calendar-fill"></i><span><?= $fetch_orders['date']; ?></span></p>
                         <img src="image/<?= $fetch_products['image']; ?>" class="image">
                         <div class="row">
                             <h3 class="name"><?= $fetch_products['name']; ?></h3>
                             <p class="price">Harga : Rp<?= $fetch_orders['price']; ?>,- x <?= $fetch_orders['qty']; ?></p>
-                            <p class="status" color: <?php if ($fetch_orders['status'] == 'dikirim') {echo 'green';} elseif ($fetch_orders['status'] == 'dibatalkan') {echo 'red';} else {echo 'orange';} ?>></p>
+                            <p class="status" style="color:<?php if ($fetch_orders['status'] == 'dikirim') {echo 'green';} elseif ($fetch_orders['status'] == 'dibatalkan') {echo 'red';} else {echo 'orange';} ?>"></p>
                         </div>
                     </a>
                 </div>
