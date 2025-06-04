@@ -27,10 +27,17 @@
         } else {
             $select_price = $conn->prepare("SELECT * FROM `products` WHERE id = ? LIMIT 1");
             $select_price->execute([$product_id]);
-            $fetch_price = $select_price->fetch(PDO::FETCH_ASSOC);
-            $insert_wishlist = $conn->prepare("INSERT INTO `wishlist` (id, user_id, product_id, price) VALUES(?,?,?,?)");
-            $insert_wishlist->execute([$id, $user_id, $product_id, $fetch_price['price']]);
-            $success_msg[] = 'produk berhasil dimasukkan ke daftar anda';
+            if ($select_price->rowCount() > 0) {
+                $fetch_price = $select_price->fetch(PDO::FETCH_ASSOC);
+                $insert_wishlist = $conn->prepare("INSERT INTO `wishlist` (id, user_id, product_id, price) VALUES(?,?,?,?)");
+                if ($insert_wishlist->execute([$id, $user_id, $product_id, $fetch_price['price']])) {
+                    $success_msg[] = 'produk berhasil dimasukkan ke daftar anda';
+                } else {
+                    $warning_msg[] = 'gagal menambahkan produk ke wishlist';
+                }
+            } else {
+                $warning_msg[] = 'produk tidak ditemukan';
+            }
         }
     }
 

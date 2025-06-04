@@ -1,6 +1,6 @@
 <header class="header">
     <div class="flex">
-        <a href="home.php" class="logo"><img src="img/logo.png"></a>
+        <a href="home.php" class="logo"><img src="img/logo2.png"></a>
         <nav class="navbar">
             <a href="home.php">Home</a>
             <a href="view_products.php">produk</a>

@@ -72,9 +72,9 @@
                     <div class="col">
                         <p class="title"><i class="bi bi-calendar-fill"></i><?= $fetch_orders['date']; ?></p>
                         <img src="image/<?= $fetch_products['image']; ?>" class="image">
-                        <p class="price"><?= $fetch_products['price']; ?> x <?= $fetch_orders['qty']; ?></p>
+                        <p class="price">Rp<?= $fetch_products['price']; ?>,- x <?= $fetch_orders['qty']; ?></p>
                         <h3 class="name"><?= $fetch_products['name']; ?></h3>
-                        <p class="grand-total">Total yang harus dibayarkan : <span>Rp<?= $grand_total; ?>,-</p>
+                        <p class="grand-total">Total yang harus dibayarkan : <span> Rp<?= $grand_total; ?>,-</p>
                     </div>
                     <div class="col">
                         <p class="title">Alamat penagihan</p>

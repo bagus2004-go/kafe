@@ -463,7 +463,7 @@ header.scrolled a:hover {
     margin-bottom: 1rem;
     padding: 0.5rem 1.5rem;
     display: inline-block;
-    background: var(--light-choco);
+    background: #ffc300;
     border-radius: 0.5rem;
 }
 .order-container .detail {
