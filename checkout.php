@@ -14,12 +14,20 @@
     }
 
     if (isset($_POST['place_order'])) {
+        if (empty($user_id)) {
+            echo "<script>alert('Silakan login terlebih dahulu sebelum melakukan pemesanan.'); window.location.href='login.php';</script>";
+            exit;
+        }
         $name = $_POST['name'];
         $name = filter_var($name, FILTER_SANITIZE_STRING);
         $number = $_POST['number'];
         $number = filter_var($number, FILTER_SANITIZE_STRING);
-        $email = $_POST['email'];
-        $email = filter_var($email, FILTER_SANITIZE_STRING);
+        if (empty($user_id)) {
+            $email = $_POST['email'];
+            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        } else {
+            $email = '';
+        }
         $address = $_POST['address'];
         $address = filter_var($address, FILTER_SANITIZE_STRING);
         $address_type = $_POST['address_type'];
@@ -64,6 +72,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-gW6a-fnzsF9VEjzP"></script>
     <title>Coffee Shop - halaman Pembayaran</title>
 </head>
 <body>
@@ -82,7 +91,7 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
             </div>
             <div class="row">
-                <form method="post">
+                <form method="post" id="checkout-form">
                     <h3>rincian tagihan</h3>
                     <div class="flex">
                         <div class="box">
@@ -95,16 +104,16 @@
                                 <input type="number" name="number" required maxlength="15" placeholder="Masukkan no.telpon anda" class="input">
                             </div>
                             <div class="input-field">
-                                <p>Email Pengguna <sup>*</sup></p>
-                                <input type="email" name="email" required maxlength="100" placeholder="Masukkan email anda" class="input">
+                                <?php if(empty($user_id)): ?>
+                                    <p style="color:red; margin-bottom:5px;">Silakan login terlebih dahulu untuk melanjutkan pemesanan.</p>
+                                    <input type="email" name="email" required placeholder="masukkan email" maxlength="50" class="input">
+                                <?php endif; ?>
                             </div>
                             <div class="input-field">
                                 <p>Metode Pembayaran <sup>*</sup></p>
                                 <select name="method" class="input">
                                     <option value="cash on delivery">Cash on Delivery</option>
                                     <option value="credit or debit card">Credit atau Debit Card</option>
-                                    <option value="E banking">E-Banking</option>
-                                    <option value="shopeepay or gopay">ShopeePay atau Gopay</option>
                                 </select>
                             </div>
                             <div class="input-field">
@@ -122,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" name="place_order" class="btn">lanjut ke pembayaran</button>
+                    <button id="pay-button" type="button" class="btn">Bayar</button>
                 </form>
                 <div class="summary">
                     <h3>tas belanja</h3>
@@ -179,6 +188,47 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="script.js"></script>
+    <script>
+    document.getElementById('pay-button').addEventListener('click', function () {
+        const method = document.querySelector('select[name="method"]').value;
+
+        if (method === 'cash on delivery') {
+            document.getElementById('checkout-form').submit();
+        } else if (method === 'credit or debit card') {
+            const name = document.querySelector('input[name="name"]').value;
+            const number = document.querySelector('input[name="number"]').value;
+            const emailField = document.querySelector('input[name="email"]');
+            const email = emailField ? emailField.value : "guest@email.com";
+            const total = <?= $grand_total ?>;
+
+            fetch('token.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, number, total })
+            })
+            .then(res => res.json())
+            .then(data => {
+                snap.pay(data.token, {
+                    onSuccess: function(result) {
+                        alert('Pembayaran berhasil!');
+                        window.location.href = "order.php";
+                    },
+                    onPending: function(result) {
+                        alert('Pembayaran sedang diproses.');
+                        window.location.href = "order.php";
+                    },
+                    onError: function(result) {
+                        alert('Pembayaran gagal!');
+                        console.log(result);
+                    },
+                    onClose: function() {
+                        alert('Popup ditutup tanpa menyelesaikan pembayaran.');
+                    }
+                });
+            });
+        }
+    });
+    </script>
     <?php include 'components/alert.php';?>
 </body>
 </html>

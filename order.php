@@ -12,9 +12,8 @@
         session_destroy();
         header('location: login.php');
     }
-
-    
 ?>
+
 <style type="text/css">
     <?php include 'style.css';?>
 </style>
@@ -60,7 +59,17 @@
                         <div class="row">
                             <h3 class="name"><?= $fetch_products['name']; ?></h3>
                             <p class="price">Harga : Rp<?= $fetch_orders['price']; ?>,- x <?= $fetch_orders['qty']; ?></p>
-                            <p class="status" style="color:<?php if ($fetch_orders['status'] == 'dikirim') {echo 'green';} elseif ($fetch_orders['status'] == 'dibatalkan') {echo 'red';} else {echo 'orange';} ?>"></p>
+                            <p class="status" style="color:<?php 
+                                if (strtolower($fetch_orders['status']) == 'dikirim') {
+                                    echo 'green';
+                                } elseif (strtolower($fetch_orders['status']) == 'dibatalkan') {
+                                    echo 'red';
+                                } else {
+                                    echo 'orange';
+                                }
+                            ?>">
+                                <?= ucfirst($fetch_orders['status']); ?>
+                            </p>
                         </div>
                     </a>
                 </div>

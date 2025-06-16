@@ -836,7 +836,7 @@ textarea {
 /*------------view products------------*/
 .view_page {
     padding: 5% 8%;
-    background-image: url('img/body-bg2.jpg');
+    background: #001d3d;
 }
 .view_page form {
     display: grid;
@@ -868,7 +868,7 @@ textarea {
     margin-bottom: 0.5rem;
 }
 .view_page .btn {
-    background: var(--light-choco);
+    background: #ffd60a;
     cursor: pointer;
 }
 .cart-total .button {
