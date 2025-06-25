@@ -44,15 +44,14 @@
     if (isset($_POST['add_to_cart'])) {
         $id = unique_id();
         $product_id = $_POST['product_id'];
-        $qty = $_POST['qty'];
-        $qty = filter_var($qty, FILTER_SANITIZE_STRING);
+        $qty = filter_var($_POST['qty'], FILTER_SANITIZE_STRING);
         $varify_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ? AND product_id = ?");
         $varify_cart->execute([$user_id, $product_id]);
         $max_cart_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
         $max_cart_items->execute([$user_id]);
         if ($varify_cart->rowCount() > 0) {
-            $warning_msg[] = 'produk sudah ada di daftar anda';
-        } else if ($max_cart_items->rowCount() > 20) {
+            $warning_msg[] = 'produk sudah ada di keranjang anda';
+        } else if ($max_cart_items->rowCount() >= 20) {
             $warning_msg[] = 'keranjang anda penuh';
         } else {
             $select_price = $conn->prepare("SELECT * FROM `products` WHERE id = ? LIMIT 1");
@@ -62,6 +61,13 @@
             $insert_cart->execute([$id, $user_id, $product_id, $fetch_price['price'], $qty]);
             $success_msg[] = 'produk berhasil dimasukkan ke keranjang anda';
         }
+    }
+
+    if (isset($_POST['place_order'])) {
+        $product_id = $_POST['product_id'];
+        $qty = $_POST['qty'];
+        header("Location: checkout.php?get_id=$product_id&qty=$qty");
+        exit;
     }
 ?>
 <style type="text/css">
@@ -73,7 +79,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Coffee Shop - halaman Produk</title>
+    <title>Coffee Shop - Halaman Produk</title>
 </head>
 <body>
     <?php include 'components/header.php';?>
@@ -97,20 +103,20 @@
                     <div class="button">
                         <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
                         <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
-                        <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="bx bxs-show"></a>
+                        <a href="view_page.php?pid=<?= $fetch_products['id']; ?>" class="bx bxs-show"></a>
                     </div>
                     <h3 class="name"><?= $fetch_products['name']; ?></h3>
-                    <input type="hidden" name="product_id"  value="<?= $fetch_products['id']; ?>">
+                    <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
                     <div class="flex">
                         <p class="price">Harga Rp<?= $fetch_products['price']; ?>,-</p>
                         <input type="number" name="qty" required min="1" value="1" max="99" maxlength="2" class="qty">
                     </div>
-                    <a href="checkout.php?get_id=<?= $fetch_products['id']; ?>" class="btn">beli sekarang</a>
+                    <button type="submit" name="place_order" class="btn">Beli Sekarang</button>
                 </form>
                 <?php
                         }
                     } else {
-                        echo '<p class="empty">tidak ada produk</p>';
+                        echo '<p class="empty">Tidak ada produk</p>';
                     }
                 ?>
             </div>

@@ -131,6 +131,7 @@
                             </div>
                         </div>
                     </div>
+                    <button type="submit" name="place_order" id="cod-submit" style="display:none;"></button>
                     <button id="pay-button" type="button" class="btn">Bayar</button>
                 </form>
                 <div class="summary">
@@ -166,7 +167,7 @@
                                         $grand_total += $sub_total;
                         ?>
                         <div class="flex">
-                            <img src="image/<?= $fetch_products['image']; ?>">
+                            <img src="image/<?= $fetch_products['image']; ?>">++++++++
                             <div>
                                 <h3 class="name"><?= $fetch_products['name']; ?></h3>
                                 <p class="price">Rp<?= $fetch_products['price']; ?> x <?= $fetch_cart['qty']; ?></p>
@@ -193,6 +194,11 @@
         const method = document.querySelector('select[name="method"]').value;
 
         if (method === 'cash on delivery') {
+            let input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "place_order";
+            input.value = "1";
+            document.getElementById('checkout-form').appendChild(input);
             document.getElementById('checkout-form').submit();
         } else if (method === 'credit or debit card') {
             const name = document.querySelector('input[name="name"]').value;
