@@ -67,6 +67,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Coffee Shop - halaman Detail Produk</title>
+    <link rel="icon" type="image/png" href="img/download.png">
 </head>
 <body>
     <?php include 'components/header.php';?>

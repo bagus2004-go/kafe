@@ -37,6 +37,7 @@ if (isset($_POST['update_order'])) {
     <title>Panel Admin - Data Pesanan</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="adminstyle.css?v=<?= time(); ?>">
+    <link rel="icon" type="image/png" href="img/download.png">
 </head>
 <body>
 <?php include '../components/admin_header.php'; ?>

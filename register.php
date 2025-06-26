@@ -54,8 +54,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Shop - halaman Daftar</title>
+    <link rel="icon" type="image/png" href="img/download.png">
 </head>
 <body>
+    <div style="text-align:left; margin-top: 20px;">
+        <a href="home.php" class="btn back-btn">← Kembali ke Beranda</a>
+    </div>
     <div class="main-container">
         <section class="form-container">
             <div class="title">

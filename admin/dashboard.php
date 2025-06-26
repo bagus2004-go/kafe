@@ -16,6 +16,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="adminstyle.css?v=<?php echo time(); ?>">
     <title>Panel Admin Kedai Kopi - halaman dasbor</title>
+    <link rel="icon" type="image/png" href="img/download.png">
 </head>
 <body>
     <?php include '../components/admin_header.php';?>

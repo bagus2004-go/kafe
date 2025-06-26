@@ -107,6 +107,20 @@ ul {
 .btn:hover {
     color: #fff;
 }
+.back-btn {
+    display: inline-block;
+    background-color: #ffd60a; /* warna coklat muda */
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-weight: 600;
+}
+.back-btn:hover {
+    background-color: #ffc300;
+}
+
 label {
     text-transform: capitalize;
 }

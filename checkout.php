@@ -74,6 +74,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-gW6a-fnzsF9VEjzP"></script>
     <title>Coffee Shop - halaman Pembayaran</title>
+    <link rel="icon" type="image/png" href="img/download.png">
 </head>
 <body>
     <?php include 'components/header.php';?>
@@ -167,7 +168,7 @@
                                         $grand_total += $sub_total;
                         ?>
                         <div class="flex">
-                            <img src="image/<?= $fetch_products['image']; ?>">++++++++
+                            <img src="image/<?= $fetch_products['image']; ?>">
                             <div>
                                 <h3 class="name"><?= $fetch_products['name']; ?></h3>
                                 <p class="price">Rp<?= $fetch_products['price']; ?> x <?= $fetch_cart['qty']; ?></p>

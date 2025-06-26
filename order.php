@@ -25,6 +25,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Coffee Shop - halaman Pesanan</title>
+    <link rel="icon" type="image/png" href="img/download.png">
 </head>
 <body>
     <?php include 'components/header.php';?>
